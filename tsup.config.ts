@@ -3,7 +3,9 @@ import { defineConfig } from "tsup"
 export default defineConfig({
   entry: ["src/index.ts"],
   format: ["esm"],
-  dts: true,
+  dts: true, // This enables declaration file generation
+  splitting: false,
+  sourcemap: true,
   clean: true,
   minify: true,
   external: [
@@ -20,5 +22,4 @@ export default defineConfig({
     "remark-directive",
   ],
   treeshake: true,
-  sourcemap: true,
 })

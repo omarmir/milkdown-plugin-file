@@ -20,7 +20,7 @@
     "lint:eslint": "eslint .",
     "lint:prettier": "prettier . --check",
     "lintfix": "eslint . --fix && prettier --write --list-different .",
-    "prepublishOnly": "pnpm build"
+    "prepare": "pnpm build"
   },
   "dependencies": {
     "@milkdown/core": "^7.6.3",
