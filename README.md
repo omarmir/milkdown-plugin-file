@@ -37,15 +37,15 @@ And then anywhere in your text type `::file` for inline file upload or `::fileBl
 
 ### Inline
 
-![Screenshot](/screenshots/inline.png?raw=true "Inline screenshot")
+![Screenshot](https://github.com/omarmir/milkdown-plugin-file/blob/main/screenshots/inline.png?raw=true "Inline screenshot")
 
 ### Block
 
-![Screenshot](/screenshots/block.png?raw=true "Block screenshot")
+![Screenshot](https://github.com/omarmir/milkdown-plugin-file/blob/main/screenshots/block.png?raw=true "Block screenshot")
 
 ### Slash
 
-![Screenshot](/screenshots/crepe.png?raw=true "Slash screenshot")
+![Screenshot](https://github.com/omarmir/milkdown-plugin-file/blob/main/screenshots/crepe.png?raw=true "Slash screenshot")
 
 ## Configuration
 
