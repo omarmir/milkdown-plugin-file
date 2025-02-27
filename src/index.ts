@@ -4,6 +4,7 @@ import directive from "remark-directive"
 import { filePickerRemarkPlugin } from "./transformer"
 import { filePickerConfig } from "./component/config"
 import { filePickerViewGenerator } from "./component/view"
+import { clearContentAndAddBlockType } from "./md-utils"
 
 import {
   fileAttr,
@@ -14,9 +15,9 @@ import {
   filePickerTextRule,
 } from "./schema"
 
-export const filePickerremarkDirective = $remark("file-picker", () => directive)
+const filePickerremarkDirective = $remark("file-picker", () => directive)
 
-export const filePicker: MilkdownPlugin[] = [
+const filePicker: MilkdownPlugin[] = [
   fileAttr,
   filePickerremarkDirective,
   filePickerNode,
@@ -30,5 +31,10 @@ export const filePicker: MilkdownPlugin[] = [
   filePickerNodeBlock,
 ].flat()
 
-// export const filePickerBlockremarkDirective = $remark('file-picker-block', () => directive)
-// export const filePickerBlock: MilkdownPlugin[] = [filePickerNodeBlock, filePickerBlockremarkDirective].flat()
+export {
+  filePicker,
+  filePickerremarkDirective,
+  clearContentAndAddBlockType,
+  filePickerNodeBlock,
+  filePickerConfig,
+}
