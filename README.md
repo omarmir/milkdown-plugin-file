@@ -31,6 +31,8 @@ import { commonmark } from "@milkdown/preset-commonmark"
 const editor = await Editor.make().use(commonmark).use(filePicker).create()
 ```
 
+Full example: https://github.com/omarmir/nanote/blob/master/components/MilkdownEditor.vue
+
 And then anywhere in your text type `::file` for inline file upload or `::fileBlock` for a block (new line) or add it to the `slash`
 
 ### Inline
