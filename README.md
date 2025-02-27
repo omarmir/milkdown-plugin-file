@@ -9,9 +9,8 @@ This plugin provides a way to integrate file picking and handling into your Milk
 ## Features
 
 - **File Picker Node**: Adds a `filePickerNode` to the Milkdown schema, allowing you to represent files within the editor.
-- **Remark Directive**: Uses `remark-directive` to parse markdown directives for file picking.
-- **Customizable Configuration**: Provides a `filePickerConfig` for configuring the file picker, such as accepted file types and upload endpoints.
-- **View Component**: Includes a `filePickerViewGenerator` to render the file picker node in the editor.
+- **Remark Directive**: Uses `remark-directive` (type `::file` or `::fileBLock`) to parse markdown directives for file picking.
+- **Customizable Configuration**: Provides a `filePickerConfig` for configuring the file picker, such as upload endpoints.
 - **Block and Text Rules**: Supports both block and text-based file picker rules.
 
 ## Installation
@@ -32,7 +31,19 @@ import { commonmark } from "@milkdown/preset-commonmark"
 const editor = await Editor.make().use(commonmark).use(filePicker).create()
 ```
 
-And then anywhere in your text type `::file` for inline file upload or `::fileBlock` for a block (new line)
+And then anywhere in your text type `::file` for inline file upload or `::fileBlock` for a block (new line) or add it to the `slash`
+
+### Inline
+
+![Screenshot](/screenshots/inline.png?raw=true "Inline screenshot")
+
+### Block
+
+![Screenshot](/screenshots/block.png?raw=true "Block screenshot")
+
+### Slash
+
+![Screenshot](/screenshots/crepe.png?raw=true "Slash screenshot")
 
 ## Configuration
 
@@ -89,7 +100,7 @@ export const defaultFilePickerConfig: FilePickerConfig = {
 }
 ```
 
-## Crepe integration
+## Slash integration
 
 Example of adding it into the advanced group
 
