@@ -81,7 +81,7 @@ export const filePickerComponent: Component<FilePickerComponentProps> = ({
               class="attachment-button"
               contenteditable="false">
               <div class="file-icon">${getHTMLIcon(title)}</div>
-              ${title}
+              <div class="file-name">${title}</div>
             </a>
           `}
     </host>
