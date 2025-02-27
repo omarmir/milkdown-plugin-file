@@ -1,6 +1,6 @@
 {
   "name": "milkdown-plugin-file",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Milkdown plugin that adds remark directive support and prosemirror component to handle file uploads",
   "private": false,
   "author": "Omar Mir<https://github.com/omarmir>",
