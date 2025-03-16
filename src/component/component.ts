@@ -1,10 +1,10 @@
-import { c, html, useRef, useState } from "atomico"
-import type { Component } from "atomico"
-import clsx from "clsx"
-import type { FilePickerConfig } from "./config"
-import { getIcon } from "material-file-icons"
+import { c, html, useRef, useState } from 'atomico'
+import type { Component } from 'atomico'
+import clsx from 'clsx'
+import type { FilePickerConfig } from './config'
+import { getIcon } from 'material-file-icons'
 
-export * from "./config"
+export * from './config'
 
 export interface Attrs {
   href: string
@@ -12,8 +12,10 @@ export interface Attrs {
 }
 
 const getHTMLIcon = (title: string | undefined) => {
-  const icon = getIcon(title ?? "").svg
-  return html` <span innerHTML=${icon}></span> `
+  const icon = getIcon(title ?? '').svg
+  return html`
+    <span innerHTML=${icon}></span>
+  `
 }
 
 export type FilePickerComponentProps = Attrs & {
@@ -23,11 +25,11 @@ export type FilePickerComponentProps = Attrs & {
 }
 
 export const filePickerComponent: Component<FilePickerComponentProps> = ({
-  href = "",
+  href = '',
   selected = false,
   title,
   setAttr,
-  config,
+  config
 }) => {
   const linkInput = useRef<HTMLInputElement>()
   const [uploading, setUploading] = useState(false)
@@ -40,8 +42,8 @@ export const filePickerComponent: Component<FilePickerComponentProps> = ({
     const url = await config?.onUpload(file)
     setUploading(false)
     if (!url) return
-    setAttr?.("href", url)
-    setAttr?.("title", file.name)
+    setAttr?.('href', url)
+    setAttr?.('title', file.name)
   }
 
   const preventDrag = (e: Event) => {
@@ -50,7 +52,7 @@ export const filePickerComponent: Component<FilePickerComponentProps> = ({
   }
 
   return html`
-    <host class=${clsx(selected && "selected", !href && "empty")}>
+    <host class=${clsx(selected && 'selected', !href && 'empty')}>
       ${!href
         ? html`
             <div class="empty-file">
@@ -60,16 +62,13 @@ export const filePickerComponent: Component<FilePickerComponentProps> = ({
                 onfocus=${() => setFocusLinkInput(true)}
                 onchange=${onUpload}
                 onclick=${() => linkInput.current?.focus()}
-                class="file-input ${clsx(
-                  "link-importer",
-                  focusLinkInput && "focus"
-                )}"
+                class="file-input ${clsx('link-importer', focusLinkInput && 'focus')}"
                 type="file" />
               ${uploading
                 ? html`
                     <div class="uploading-icon">${config?.uploadingHTML()}</div>
                   `
-                : ""}
+                : ''}
             </div>
           `
         : html`
@@ -93,7 +92,7 @@ filePickerComponent.props = {
   title: String,
   selected: Boolean,
   setAttr: Function,
-  config: Object,
+  config: Object
 }
 
 export const FilePickerElement = c(filePickerComponent)
