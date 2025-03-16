@@ -9,7 +9,7 @@ This plugin provides a way to integrate file picking and handling into your Milk
 ## Features
 
 - **File Picker Node**: Adds a `filePickerNode` to the Milkdown schema, allowing you to represent files within the editor.
-- **Remark Directive**: Uses `remark-directive` (type `::file` or `::fileBLock`) to parse markdown directives for file picking.
+- **Remark Directive**: Uses `remark-directive` (type `::file` or `::fileBlock`) to parse markdown directives for file picking.
 - **Customizable Configuration**: Provides a `filePickerConfig` for configuring the file picker, such as upload endpoints.
 - **Block and Text Rules**: Supports both block and text-based file picker rules.
 
@@ -24,9 +24,9 @@ pnpm install milkdown-plugin-file
 ## Usage
 
 ```ts
-import { Editor } from "@milkdown/core"
-import { filePicker } from "milkdown-plugin-file"
-import { commonmark } from "@milkdown/preset-commonmark"
+import { Editor } from '@milkdown/core'
+import { filePicker } from 'milkdown-plugin-file'
+import { commonmark } from '@milkdown/preset-commonmark'
 
 const editor = await Editor.make().use(commonmark).use(filePicker).create()
 ```
@@ -37,15 +37,15 @@ And then anywhere in your text type `::file` for inline file upload or `::fileBl
 
 ### Inline
 
-![Screenshot](https://github.com/omarmir/milkdown-plugin-file/blob/main/screenshots/inline.png?raw=true "Inline screenshot")
+![Screenshot](https://github.com/omarmir/milkdown-plugin-file/blob/main/screenshots/inline.png?raw=true 'Inline screenshot')
 
 ### Block
 
-![Screenshot](https://github.com/omarmir/milkdown-plugin-file/blob/main/screenshots/block.png?raw=true "Block screenshot")
+![Screenshot](https://github.com/omarmir/milkdown-plugin-file/blob/main/screenshots/block.png?raw=true 'Block screenshot')
 
 ### Slash
 
-![Screenshot](https://github.com/omarmir/milkdown-plugin-file/blob/main/screenshots/crepe.png?raw=true "Slash screenshot")
+![Screenshot](https://github.com/omarmir/milkdown-plugin-file/blob/main/screenshots/crepe.png?raw=true 'Slash screenshot')
 
 ## Configuration
 
@@ -77,17 +77,12 @@ export interface FilePickerConfig {
 ```ts
 export const defaultFilePickerConfig: FilePickerConfig = {
   uploadingHTML: () => html`
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      style="display:inline">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="display:inline">
       <path
         fill="currentColor"
         d="M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2Zm0 18a8 8 0 1 1 8-8A8 8 0 0 1 12 20Z"
         opacity="0.5" />
-      <path
-        fill="currentColor"
-        d="M20 12h2A10 10 0 0 0 12 2V4A8 8 0 0 1 20 12Z">
+      <path fill="currentColor" d="M20 12h2A10 10 0 0 0 12 2V4A8 8 0 0 1 20 12Z">
         <animateTransform
           attributeName="transform"
           dur="1s"
@@ -98,7 +93,7 @@ export const defaultFilePickerConfig: FilePickerConfig = {
       </path>
     </svg>
   `,
-  onUpload: (file) => Promise.resolve(URL.createObjectURL(file)),
+  onUpload: (file) => Promise.resolve(URL.createObjectURL(file))
 }
 ```
 
