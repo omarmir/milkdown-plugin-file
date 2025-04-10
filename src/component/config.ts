@@ -5,6 +5,7 @@ export interface FilePickerConfig {
   uploadingHTML: () => ReturnType<typeof html>
   onUpload: (file: File) => Promise<string>
   toCheckUpload?: (url: string) => Promise<unknown>
+  failedCheckMessage?: string
   proxyDomURL?: (url: string) => Promise<string> | string
 }
 

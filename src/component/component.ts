@@ -90,7 +90,7 @@ export const filePickerComponent: Component<FilePickerComponentProps> = ({
               type="button"
               title="Download ${title}"
               title=${clsx(
-                fileExists ? `Download ${title}` : 'Unable to access file' // Add the async class here
+                fileExists ? `Download ${title}` : (config?.failedCheckMessage ?? 'Unable to access file') // Add the async class here
               )}
               href="${href}"
               download=${title}
