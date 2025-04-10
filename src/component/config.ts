@@ -4,6 +4,7 @@ import { html } from 'atomico'
 export interface FilePickerConfig {
   uploadingHTML: () => ReturnType<typeof html>
   onUpload: (file: File) => Promise<string>
+  toCheckUpload?: (url: string) => Promise<unknown>
   proxyDomURL?: (url: string) => Promise<string> | string
 }
 

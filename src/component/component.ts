@@ -34,6 +34,7 @@ export const filePickerComponent: Component<FilePickerComponentProps> = ({
   const linkInput = useRef<HTMLInputElement>()
   const [uploading, setUploading] = useState(false)
   const [focusLinkInput, setFocusLinkInput] = useState(false)
+  const [fileExists, setFileExists] = useState(true)
 
   const onUpload = async (e: InputEvent) => {
     const file = (e.target as HTMLInputElement).files?.[0]
@@ -45,6 +46,19 @@ export const filePickerComponent: Component<FilePickerComponentProps> = ({
     setAttr?.('href', url)
     setAttr?.('title', file.name)
   }
+
+  const checkFileExists = async () => {
+    try {
+      if (!config?.toCheckUpload) return
+      // Your async logic here
+      await config?.toCheckUpload(href)
+      setFileExists(true)
+    } catch {
+      setFileExists(false)
+    }
+  }
+
+  checkFileExists()
 
   const preventDrag = (e: Event) => {
     e.preventDefault()
@@ -75,9 +89,15 @@ export const filePickerComponent: Component<FilePickerComponentProps> = ({
             <a
               type="button"
               title="Download ${title}"
+              title=${clsx(
+                fileExists ? `Download ${title}` : 'Unable to access file' // Add the async class here
+              )}
               href="${href}"
               download=${title}
-              class="attachment-button"
+              class=${clsx(
+                'attachment-button',
+                fileExists ? 'exists' : 'not-exist' // Add the async class here
+              )}
               contenteditable="false">
               <div class="file-icon">${getHTMLIcon(title)}</div>
               <div class="file-name">${title}</div>
