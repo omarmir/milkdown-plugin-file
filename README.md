@@ -68,6 +68,8 @@ The value should be a string or promise string.
 export interface FilePickerConfig {
   uploadingHTML: () => ReturnType<typeof html>
   onUpload: (file: File) => Promise<string>
+  toCheckUpload?: (url: string) => Promise<unknown>
+  failedCheckMessage?: string
   proxyDomURL?: (url: string) => Promise<string> | string
 }
 ```
@@ -93,7 +95,9 @@ export const defaultFilePickerConfig: FilePickerConfig = {
       </path>
     </svg>
   `,
-  onUpload: (file) => Promise.resolve(URL.createObjectURL(file))
+  onUpload: (file) => Promise.resolve(URL.createObjectURL(file)),
+  toCheckUpload: (url: string) => Promise.resolve(URL.createObjectURL(url)), // if the api endpoint throws error its considered to not be available
+  failedCheckMessage: 'Unable to access file!'
 }
 ```
 
