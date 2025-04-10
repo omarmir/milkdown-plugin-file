@@ -17,15 +17,6 @@ export const filePickerNode = $nodeSchema('file', () => ({
     href: { default: '' },
     title: { default: '' }
   },
-  parseDOM: [
-    {
-      tag: 'a',
-      getAttrs: (dom) => ({
-        href: dom.getAttribute('href'),
-        title: dom.getAttribute('title')
-      })
-    }
-  ],
   parseMarkdown: {
     match: (node) => node.type === 'file',
     runner: (state, node, type) => {
