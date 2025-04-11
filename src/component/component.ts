@@ -49,7 +49,7 @@ export const filePickerComponent: Component<FilePickerComponentProps> = ({
 
   const checkFileExists = async () => {
     try {
-      if (!config?.toCheckUpload) return
+      if (!config?.toCheckUpload || !href) return
       // Your async logic here
       await config?.toCheckUpload(href)
       setFileExists(true)
