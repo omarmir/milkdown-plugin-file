@@ -24,6 +24,17 @@ export const filePickerNode = $nodeSchema('file', () => ({
       state.addNode(type, { href: attrs.href, title: attrs.title })
     }
   },
+  toDOM: (node) => {
+    const { title, src } = node.attrs
+    return [
+      'span',
+      {
+        class: 'file-picker',
+        'data-src': src
+      },
+      `File: ${title || 'unknown'}`
+    ]
+  },
   toMarkdown: {
     match: (node) => node.type.name === 'file',
     runner: (state, node) => {
@@ -52,6 +63,17 @@ export const filePickerNodeBlock = $nodeSchema('fileBlock', () => ({
       const attrs = node.attributes as { href: string; title: string }
       state.addNode(type, { href: attrs.href, title: attrs.title })
     }
+  },
+  toDOM: (node) => {
+    const { title, src } = node.attrs
+    return [
+      'div',
+      {
+        class: 'file-picker-block',
+        'data-src': src
+      },
+      `File: ${title || 'unknown'}`
+    ]
   },
   toMarkdown: {
     match: (node) => node.type.name === 'fileBlock',
