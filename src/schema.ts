@@ -1,6 +1,7 @@
 import { $inputRule, $nodeAttr, $nodeSchema } from '@milkdown/kit/utils'
 import { InputRule } from '@milkdown/prose/inputrules'
-import { blockRegex, regex, shortBlockRegex, shortRegex } from './transformer'
+import { shortBlockRegex, shortRegex } from './transformer'
+import { blockRegex, regex } from './regex'
 
 export const fileAttr = $nodeAttr('file', () => ({
   href: {},

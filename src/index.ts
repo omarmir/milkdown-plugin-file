@@ -34,5 +34,3 @@ const filePicker: MilkdownPlugin[] = [
 ].flat()
 
 export { filePicker, filePickerremarkDirective, clearContentAndAddBlockType, filePickerNodeBlock, filePickerConfig }
-
-export { regex as inlineRegex, blockRegex } from './transformer'

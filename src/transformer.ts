@@ -1,8 +1,6 @@
 import type { Node, RemarkPluginRaw } from '@milkdown/transformer'
 import { $remark } from '@milkdown/utils'
-
-export const regex = /::file\{href="(?<href>[^"]+)?"? title="(?<title>[^"]+)?"?\}/
-export const blockRegex = /::fileBlock\{href="(?<href>[^"]+)?"? title="(?<title>[^"]+)?"?\}/
+import { regex } from './regex'
 
 export const shortRegex = /::file\s/
 export const shortBlockRegex = /::fileBlock\s/
