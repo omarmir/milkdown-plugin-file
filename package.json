@@ -53,7 +53,7 @@
     "typescript": "^5.3.3"
   },
   "exports": {
-    ".": "./dist/index.ts",
-    "./regex": "./dist/regex.ts"
+    ".": "./dist/index.js",
+    "./regex": "./dist/regex.js"
   }
 }
