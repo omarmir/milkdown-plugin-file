@@ -1,7 +1,7 @@
 import type { MilkdownPlugin } from '@milkdown/kit/ctx'
 import { $remark } from '@milkdown/kit/utils'
 import directive from 'remark-directive'
-import { filePickerRemarkPlugin, regex as inlineRegex, blockRegex } from './transformer'
+import { filePickerRemarkPlugin } from './transformer'
 import { filePickerConfig } from './component/config'
 import { filePickerViewGenerator } from './component/view'
 import { clearContentAndAddBlockType } from './md-utils'
@@ -33,12 +33,6 @@ const filePicker: MilkdownPlugin[] = [
   filePickerNodeBlock
 ].flat()
 
-export {
-  filePicker,
-  filePickerremarkDirective,
-  clearContentAndAddBlockType,
-  filePickerNodeBlock,
-  filePickerConfig,
-  inlineRegex,
-  blockRegex
-}
+export { filePicker, filePickerremarkDirective, clearContentAndAddBlockType, filePickerNodeBlock, filePickerConfig }
+
+export { regex as inlineRegex, blockRegex } from './transformer'
